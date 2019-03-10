@@ -75,10 +75,10 @@ public class VoteCountJob {
             if (runningRecord.getScore() == null) {
                 runningRecord.setStatus(1);
                 mailBean.setStatus("Expired");
-            } else if (runningRecord.getScore() <= 0) {
+            } else if (runningRecord.getScore() < 0) {
                 runningRecord.setStatus(2);
                 mailBean.setStatus("Rejected");
-            } else if (runningRecord.getScore() > 0) {
+            } else if (runningRecord.getScore() >= 0) {
                 runningRecord.setStatus(3);
                 mailBean.setStatus("Passed");
                 mailBean.setEarnedCoins(runningRecordWithInfo.getEarnedCoins());

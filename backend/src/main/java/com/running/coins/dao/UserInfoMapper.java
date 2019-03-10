@@ -144,7 +144,7 @@ public interface UserInfoMapper {
             "    FROM Running_Record",
             "      INNER JOIN UserGroup ON UserGroup.UserGroupId = Running_Record.UserGroupId",
             "      INNER JOIN User_Info ON User_Info.OpenId = UserGroup.UserOpenid",
-            "    WHERE Running_Record.Status = 3 AND Score > 0",
+            "    WHERE Running_Record.Status = 3 AND Score >= 0",
             "    GROUP BY User_Info.OpenId",
             "  )",
             "    AS tempWithoutVotedCoinResult",
