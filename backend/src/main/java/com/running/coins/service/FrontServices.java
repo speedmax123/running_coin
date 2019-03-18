@@ -195,9 +195,7 @@ public class FrontServices {
         Date end = thisLocalizedWeek.getLastDay();
         String rangeOfTime = parseForFrontEnd1(start) + " to " + parseForFrontEnd1(end);
 
-        userGroups.stream().parallel().forEach(userGroup -> {
-            handleWeeklyUserInGroup(userRecords, start, end, userGroup);
-        });
+        userGroups.stream().parallel().forEach(userGroup -> handleWeeklyUserInGroup(userRecords, start, end, userGroup));
         weeklyReportResponse.setTimeRange(rangeOfTime);
         weeklyReportResponse.setAllWeeklyRecords(userRecords);
         return ResultUtils.success(weeklyReportResponse);
