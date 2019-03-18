@@ -188,7 +188,7 @@ public class FrontServices {
 
     public ResponseMessage everyOneWeekly2(WeeklyReportRequest weeklyReportRequest) {
         WeeklyReportResponse weeklyReportResponse = new WeeklyReportResponse();
-        List<UserRecord> userRecords = Lists.newLinkedList();
+        List<UserRecord> userRecords = Lists.newArrayList();
         List<UserGroup> userGroups = userGroupMapper.selectByGroupId(weeklyReportRequest.getGroupId());
         ThisLocalizedWeek thisLocalizedWeek = new ThisLocalizedWeek(Locale.CHINA);
         Date start = thisLocalizedWeek.getFirstDay();
