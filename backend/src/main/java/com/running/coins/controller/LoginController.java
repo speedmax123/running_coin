@@ -43,7 +43,8 @@ public class LoginController {
     @ApiImplicitParam(name = "onLogin", value = "", required = true, dataType = "onLogin")
     @PostMapping("/onLoginV2")
     public ResponseMessage onLoginV2(@RequestBody UserLoginRequest userLoginRequest) {
-
+        log.info("username: {}", userLoginRequest.getUserName());
+        log.info("icon: {}", userLoginRequest.getIcon());
         ResponseMessage responseMessage = userLoginService.userLoginServiceV2(userLoginRequest);
         return responseMessage;
     }
