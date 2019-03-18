@@ -7,11 +7,13 @@ import com.running.coins.model.response.ResponseMessage;
 import com.running.coins.service.FrontServices;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/front")
+@Slf4j
 public class FrontController {
 
     private
@@ -35,6 +37,8 @@ public class FrontController {
     @ApiOperation(value = "", notes = "")
     @ApiImplicitParam(name = "weeklyReportRequest", required = true, dataType = "WeeklyReportRequest")
     public ResponseMessage getEveryoneWeeklyReport(@RequestBody WeeklyReportRequest weeklyReportRequest) {
+        log.info("weekly report request: \n");
+        log.info(weeklyReportRequest.toString());
         return frontServices.everyOneWeekly2(weeklyReportRequest);
     }
 
